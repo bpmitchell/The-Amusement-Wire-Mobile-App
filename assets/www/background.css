@@ -1,0 +1,10 @@
+.rssBody ul, .rssRow {
+			margin-left: 0;
+			padding-left: 0;
+			list-style: none;
+		}
+		.rssRow h4 { margin: 0; font-size: 1.8em; letter-spacing: -1px; }
+		.rssRow h4 a { text-decoration: none; }
+		.rssRow h4 a:hover { color: darkblue; }
+		.rssRow div { font-size: 0.9em; color: #999; }
+		#zazar { color: #fff; }
