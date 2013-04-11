@@ -213,7 +213,7 @@ public class ChildBrowser extends Plugin {
     public String showWebPage(final String url, JSONObject options) {
         // Determine if we should hide the location bar.
         if (options != null) {
-            showLocationBar = options.optBoolean("showLocationBar", true);
+            showLocationBar = options.optBoolean("showLocationBar", false);
         }
 
         // Create dialog in new thread

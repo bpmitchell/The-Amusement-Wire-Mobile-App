@@ -1,78 +1,79 @@
 <!DOCTYPE html>
-<!--
-       Licensed to the Apache Software Foundation (ASF) under one
-       or more contributor license agreements.  See the NOTICE file
-       distributed with this work for additional information
-       regarding copyright ownership.  The ASF licenses this file
-       to you under the Apache License, Version 2.0 (the
-       "License"); you may not use this file except in compliance
-       with the License.  You may obtain a copy of the License at
-
-         http://www.apache.org/licenses/LICENSE-2.0
-
-       Unless required by applicable law or agreed to in writing,
-       software distributed under the License is distributed on an
-       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-       KIND, either express or implied.  See the License for the
-       specific language governing permissions and limitations
-       under the License.
--->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <script type="text/javascript" src="cordova-2.3.0.js"></script>
-        <link rel="stylesheet" href="../www/jquery/jquery.mobile-1.2.0.min.css">
-        <script src="../www/jquery/jquery-1.8.2.min.js"></script>
-        <script src="../www/jquery/jquery.mobile-1.2.0.min.js"></script>
-        <script src="../www/jquery/jquery.zrssfeed1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
-        <link rel="stylesheet" href="theamusementwire.css">
-        <style type="text/css">
-		.rssBody ul, .rssRow {
-			margin-left: 0;
-			padding-left: 0;
-			list-style: none;
-		}
-		.rssRow h4 { margin: 0; font-size: 1.8em; letter-spacing: -1px; }
-		.rssRow h4 a { text-decoration: none; }
-		.rssRow h4 a:hover { color: darkblue; }
-		.rssRow div { font-size: 0.9em; color: #999; }
-		#zazar { color: #fff; }
-	    </style>
-        <title>The Amusement Wire Mobile - Home</title>
-	<script type="text/javascript">
-	     $('element').on(touchClick, function(e){ //do something });
-</script>
+        <script src="js/SystemNotification.js"></script>
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css">
+        <link rel="stylesheet" href="css/theamusementwire.css">
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/custom-scripting.js"></script>
+        <script src="js/jquery.mobile-1.2.0.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/childbrowser.js"></script>
+        <script type="text/javascript" src="js/rssfeed.js"></script>
 </head>
     <body onLoad="onBodyLoad();">
-    <div data-role="page" id="homepage">
+    <div data-role="page" id="mainPage" data-transition="none">
+      <div data-role="header" data-position="fixed">
+         <img src="images/logoresized.png" class="ui-btn-left" />
+      <div style="position:absolute; left:300px; top:15px;">
+      <a href="#" onclick="window.plugins.childBrowser.showWebPage('https://www.facebook.com/TheAmusementWire');"><img src="images/facebooklogo.png" width="30" height="30" border="0"></a>
+                    </div>
+            <div style="position:absolute; left:294px; top:45px;">
+                <font size="-2">Facebook</font>
+            </div>
+            <div style="position:absolute; left:400px; top:15px;">
+            <a href="#" onclick="window.plugins.childBrowser.showWebPage('https://twitter.com/bpmitchell');"><img src="images/twitterlogo.png" width="30" height="30" border="0"></a>
+                    </div>
+            <div style="position:absolute; left:399px; top:45px;">
+                <font size="-2">Twitter</font>
+            </div>
+            <div style="position:absolute; left:500px; top:15px;">
+            <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.youtube.com/user/theamusementwire');"><img src="images/youtubelogo.png" width="30" height="30" border="0"></a>
+                    </div>
+            <div style="position:absolute; left:495px; top:45px;">
+                <font size="-2">YouTube</font>
+            </div>
+     <h1></h1>
+     <h1></h1>
+     </div> 
+     <div data-role="content"> 
+     <p style="text-indent: 10px"><span style="text-decoration: underline;"><strong>Latest News:</strong></span></p>
+     <div id="status"></div> 
+     <ul id="linksList" data-role="listview" data-inset="true"></ul>
+     </div>     
+     <div data-role="footer" data-id="foo1" data-position="fixed">
+     <p align="center"><strong>&copy;The Amusement Wire</strong></p>
+     <p align="center"><strong>App Designed by: Brian Mitchell</strong></p>
+            </div>
+            </div>
+        <div data-role="page" id="contentPage" data-transition="none">
+
     <div data-role="header" data-position="fixed">
-    <img border="0" src="../www/images/logoresized001.png" alt="logo" style="float:left;display:inline"/>
-    <div style="position:absolute; display:inline; left:125px; top:15px;">
-    <font size="+2"><b>Mobile App</b></font></div>
-    <div style="position:absolute; left:310px; top:4px;"><a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.facebook.com/theamusementwire');">
-    <img src="../www/images/facebooklogo.png"></a></div>
-    <div style="position:absolute; left:366px; top:4px;">
-    <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.twitter.com/bpmitchell');"><img src="../www/images/twitterlogo.png"></a></div>
-    <div style="position:absolute; left:420px; top:4px;"><a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.youtube.com/theamusementwire');">
-    <img src="../www/images/youtubelogo.png"></a></div>
-    <h1></h1>
+        <img src="images/logoresized.png" class="ui-btn-left" />
+        <a href="#mainPage" data-theme="d" data-role="button" class="ui-btn-right" data-icon="arrow-l" data-iconpos="left" data-inline="true">Back</a>
+        <h1></h1>
+        <h1></h1>
     </div>
-    <div data-role="content">
-    <h1><b>Latest News:</b></h1>  
-		<div id="rss"></div></div>
-		
-		<script type="text/javascript">
-	$(document).ready(function () {
-		$('#rss').rssfeed('http://rsspect.com/rss/theamusementwirerevisedrss.xml', {
-			limit: 7
-		});
-	});
-	</script>
-            
-    <div data-role="footer" data-position="fixed" data-transition="none"><h1>&copy; 2013: <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.theamusementwire.com');">The Amusement Wire</a></h1><h1>App Designed by: Brian Mitchell</h1></div>
+
+    <div data-role="content" id="entryText" data-transition="none">
+    <script type="text/javascript">
+    $(window).on("touchstart", ".fullLink", function(e) {
+    e.preventDefault();
+    window.plugins.childBrowser.showWebPage($(this).attr("href"));
+    });
+    </script>
     </div>
-    </body>
+    
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+     <p align="center"><strong>&copy;The Amusement Wire</strong></p>
+     <p align="center"><strong>App Designed by: Brian Mitchell</strong></p>
+        </div>
+    
+    <script src="js/custom-scripting.js"></script>
+        
+</div>
+</body>
 </html>
